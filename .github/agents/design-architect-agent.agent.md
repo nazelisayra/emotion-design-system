@@ -1,5 +1,5 @@
 ---
-name: design-systems-architect-expert-agent
+name: design-architect-agent
 description: Design System Architect for a React project. Enforces strict BEM CSS naming, Atomic Design structure, and Semantic HTML.
 argument-hint: A component request, refactor task, or codebase review.
 tools: ['read', 'edit', 'search']

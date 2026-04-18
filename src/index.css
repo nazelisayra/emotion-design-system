@@ -1,4 +1,12 @@
 :root {
+  /* tokens/colors.css sets the detailed color scale and aliases */
+}
+
+@import "./components/tokens/colors.css";
+
+/* Note: tokens import should come before component styles that consume them */
+
+:root {
   --text: #6b6375;
   --text-h: #08060d;
   --bg: #fff;
