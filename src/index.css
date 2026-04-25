@@ -1,9 +1,6 @@
-:root {
-  /* tokens/colors.css sets the detailed color scale and aliases */
-}
-
 @import "./components/tokens/colors.css";
 
+/* tokens/colors.css sets the detailed color scale and aliases */
 /* Note: tokens import should come before component styles that consume them */
 
 :root {

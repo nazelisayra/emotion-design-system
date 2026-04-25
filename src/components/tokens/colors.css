@@ -9,6 +9,80 @@
 */
 
 :root {
+  /* =========================================
+    COLORS
+    ========================================= */
+  /* Brand & Accent Colors */
+  --color-accent-yellow: #F6D66B;    /* Used in progress bars, hired tag, badges */
+  --color-accent-dark: #2C2C2E;      /* Used for active navigation, dark cards */
+  --color-accent-gray: #E0E0E0;      /* Used for disabled/inactive states */
+
+  /* Backgrounds */
+  --color-bg-base: #FDFBF5;          /* The warm, creamy background color */
+  --color-bg-surface: #FFFFFF;       /* Standard white card background */
+  --color-bg-surface-dark: #262626;  /* Dark card background (e.g., Onboarding Task) */
+  --color-bg-surface-glass: rgba(255, 255, 255, 0.7); /* Translucent backgrounds */
+
+  /* Typography Colors */
+  --color-text-primary: #1A1A1A;     /* Main headings and prominent text */
+  --color-text-secondary: #737373;   /* Subtitles, labels, and secondary info */
+  --color-text-inverse: #FFFFFF;     /* Text on dark surfaces */
+  --color-text-muted: #A3A3A3;       /* Unselected text, placeholder states */
+
+  /* Borders & Lines */
+  --color-border-light: #F0F0F0;     /* Subtle dividers (e.g., calendar grid) */
+  --color-border-dark: #3A3A3C;      /* Dividers on dark cards */
+
+  /* =========================================
+    TYPOGRAPHY
+    ========================================= */
+  --font-family-base: 'Poppins', 'Inter', system-ui, sans-serif;
+
+  --font-size-xs: 0.75rem;     /* 12px - Tags, dates, small labels */
+  --font-size-sm: 0.875rem;    /* 14px - Regular list items, secondary text */
+  --font-size-md: 1rem;        /* 16px - Base body text, button text */
+  --font-size-lg: 1.25rem;     /* 20px - Card titles (Progress, Time tracker) */
+  --font-size-xl: 1.5rem;      /* 24px - Medium numbers, highlighted names */
+  --font-size-2xl: 2.5rem;     /* 40px - Greeting ("Welcome in, Nixtio") */
+  --font-size-3xl: 3.5rem;     /* 56px - Large stat numbers (78, 56, 203) */
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-light: 300;    /* Used for the large thin numbers */
+
+  /* =========================================
+    SPACING (Padding & Margins)
+    ========================================= */
+  --space-2xs: 0.25rem;   /* 4px */
+  --space-xs: 0.5rem;     /* 8px */
+  --space-sm: 0.75rem;    /* 12px */
+  --space-md: 1rem;       /* 16px */
+  --space-lg: 1.5rem;     /* 24px - Standard card padding */
+  --space-xl: 2rem;       /* 32px */
+  --space-2xl: 3rem;      /* 48px - Spacing between major sections */
+
+  /* =========================================
+    RADII (Border Radius)
+    ========================================= */
+  --radius-sm: 8px;       /* Small tags, inner elements */
+  --radius-md: 16px;      /* Standard components, list items */
+  --radius-lg: 24px;      /* Main dashboard cards */
+  --radius-xl: 32px;      /* Larger cards (e.g., Profile picture card) */
+  --radius-pill: 9999px;  /* Top navigation buttons, tag pills */
+  --radius-circle: 50%;   /* Avatars, circular play buttons */
+
+  /* =========================================
+    SHADOWS & EFFECTS
+    ========================================= */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);   /* Soft shadow for main cards */
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.05); /* Backdrop blur support */
+
+  /* Filters */
+  --backdrop-blur-md: blur(12px); /* For top navigation and glass elements */
+
+  /* --- Legacy palettes (kept for compatibility) --- */
   /* Primary (blue) */
   --color-primary-50: #eff6ff;
   --color-primary-100: #dbeafe;
@@ -91,24 +165,27 @@
   --color-danger-800: #991b1b;
   --color-danger-900: #7f1d1d;
 
-  /* Aliases / semantic tokens */
-  --color-background: var(--color-neutral-50);
-  --color-surface: #ffffff;
-  --color-border: var(--color-neutral-200);
-  --color-muted: var(--color-neutral-400);
+  /* Aliases / semantic tokens (compatibility) */
+  --color-background: var(--color-bg-base);
+  --color-surface: var(--color-bg-surface);
+  --color-surface-dark: var(--color-bg-surface-dark);
+  --color-surface-glass: var(--color-bg-surface-glass);
+  --color-border: var(--color-border-light);
+  --color-muted: var(--color-text-muted);
 
-  --color-text-primary: var(--color-neutral-900);
-  --color-text-secondary: var(--color-neutral-700);
-  --color-text-inverse: #ffffff;
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-inverse: var(--color-text-inverse);
 
   --color-primary: var(--color-primary-500);
+  --color-primary-500: var(--color-primary-500);
   --color-primary-hover: var(--color-primary-600);
   --color-on-primary: var(--color-text-inverse);
 
   --color-secondary: var(--color-secondary-500);
   --color-on-secondary: var(--color-text-inverse);
 
-  --color-accent: var(--color-accent-500);
+  --color-accent: var(--color-accent-yellow);
 
   --shadow-1: 0 1px 2px rgba(16,24,40,0.04);
   --shadow-2: 0 6px 18px rgba(17,24,39,0.08);
