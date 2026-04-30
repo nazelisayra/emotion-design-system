@@ -1,34 +1,53 @@
 .card {
-  background: var(--color-bg-surface);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
-  padding: var(--space-lg);
-  border: 1px solid var(--color-border);
-  color: var(--color-text-primary);
-}
-
-.card__header {
-  margin-bottom: var(--space-sm);
-}
-
-.card__title {
-  font-size: var(--font-size-lg);
-  margin: 0;
-}
-
-.card__subtitle {
-  margin: 4px 0 0;
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-sm);
-}
-
-.card__body {
-  margin: var(--space-md) 0;
-}
-
-.card__actions {
+  position: relative;
   display: flex;
-  gap: var(--space-sm);
-  justify-content: flex-end;
-  margin-top: var(--space-sm);
+  flex-direction: column;
+  background: var(--emotion-bg, var(--color-bg-surface));
+  color: var(--emotion-foreground, var(--color-text-primary));
+  border: 1px solid var(--emotion-border, var(--color-border));
+  border-radius: var(--radius-lg);
+  padding: 0.75rem;
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: var(--backdrop-blur-md, none);
+  -webkit-backdrop-filter: var(--backdrop-blur-md, none);
+  transition: box-shadow 180ms ease, transform 160ms ease, border-color 160ms ease;
+  overflow: hidden;
+  max-height: var(--card-max-height, 240px);
+}
+
+.card:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12), 0 0 14px var(--emotion-glow, transparent);
+  transform: translateY(-4px);
+}
+
+.card__header { margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.card__header-main { display:flex; flex-direction:column; }
+.card__header-actions { display:flex; gap:0.5rem; align-items:center; }
+.card__title { margin: 0; font-size: var(--font-size-lg); }
+.card__subtitle { margin: 0; color: var(--color-text-muted); font-size: var(--font-size-sm); }
+.card__body { margin: 0.5rem 0; flex: 1; overflow: hidden; }
+.card__actions { display:flex; gap:0.5rem; justify-content:flex-end; margin-top:0.75rem }
+
+.card--centered .card__header { justify-content: center; }
+.card--centered .card__header-main { align-items: center; text-align: center; }
+.card--centered .card__actions { justify-content: center; }
+
+/* Allow emotion-aware variants through CSS variables fallback */
+.card[data-emotion="trust"] { /* optional semantic hook for defaults */ }
+.card[data-emotion="focus"] { }
+.card[data-emotion="action"] { }
+
+/* Constrain images inside cards so they fit the frame */
+.card__body img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Slightly larger image allowance for trust/image-first cards */
+.card[data-emotion="trust"] .card__body img {
+  max-height: 140px;
 }

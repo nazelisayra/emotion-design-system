@@ -182,3 +182,18 @@
     border-right-color: var(--border);
   }
 }
+
+/* Shared centered content width used by hero and card variations */
+.content-width {
+  max-width: 960px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Slightly smaller H1 for the top page title inside #center */
+#center > h1 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  margin: 0;
+}

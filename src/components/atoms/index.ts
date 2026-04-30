@@ -3,3 +3,7 @@ export { default as Button } from './Button';
 export { default as SuccessButton } from './SuccessButton';
 export { default as DangerButton } from './DangerButton';
 export { default as LinkButton } from './LinkButton';
+export { default as Alert } from './Alert';
+export { default as InputField } from './InputField';
+export { default as LoadingSpinner } from './LoadingSpinner';
+export { default as ProgressBar } from './ProgressBar';

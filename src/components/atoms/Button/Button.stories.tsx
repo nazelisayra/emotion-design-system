@@ -21,3 +21,19 @@ export const Sizes = () => (
     <Button variant="primary" size="lg">Large</Button>
   </div>
 );
+
+// Emotion-focused stories
+export const EmotionClarity = () => (
+  <Button variant="ghost">Clarity — Minimal</Button>
+);
+EmotionClarity.storyName = 'Emotion: Clarity';
+
+export const EmotionTrust = () => (
+  <Button variant="primary">Trust — Confirm</Button>
+);
+EmotionTrust.storyName = 'Emotion: Trust';
+
+export const EmotionAction = () => (
+  <Button variant="secondary">Action — Take Action</Button>
+);
+EmotionAction.storyName = 'Emotion: Action';

@@ -25,3 +25,5 @@ export const colors = {
 export type ColorToken = typeof colors[keyof typeof colors];
 
 export default colors;
+
+export { emotionTokens } from './emotionTokens';
