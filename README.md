@@ -38,6 +38,9 @@ npm run preview
 
 # Lint
 npm run lint
+
+# Deploy to GitHub Pages
+npm run deploy
 ```
 
 ---
