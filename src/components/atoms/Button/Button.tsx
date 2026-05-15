@@ -33,7 +33,7 @@ const Button: React.FC<ButtonProps> = ({
 
   // map emotion tokens to inline CSS variables so CSS can override visually
   const emotionMap = emotion ? emotionTokens[emotion] : undefined;
-  const style: React.CSSProperties = emotionMap
+  const style: React.CSSProperties | undefined = emotionMap
     ? {
         ['--emotion-bg' as any]: emotionMap.background,
         ['--emotion-foreground' as any]: (emotionMap as any).foreground || (emotionMap as any).color,

@@ -1,4 +1,3 @@
-import React from 'react'
 import './DownloadButton.css'
 
 type Props = {
