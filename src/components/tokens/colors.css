@@ -189,6 +189,88 @@
 
   --shadow-1: 0 1px 2px rgba(16,24,40,0.04);
   --shadow-2: 0 6px 18px rgba(17,24,39,0.08);
+
+  /* Dark futuristic button tokens */
+  --btn-dark-surface: #12121C;
+  --btn-dark-border: rgba(255, 255, 255, 0.06);
+  --btn-dark-text: #A8A8C0;
+  --btn-dark-letter-spacing: 0.04em;
+
+  --btn-action-bg: #1d4ed8;
+  --btn-action-border: rgba(59, 130, 246, 0.5);
+  --btn-action-text: #EEF2FF;
+  --btn-action-glow: 0 0 20px rgba(37, 99, 235, 0.4);
+
+  --btn-disabled-surface: #0C0C14;
+  --btn-disabled-border: rgba(255, 255, 255, 0.025);
+  --btn-disabled-text: #2A2A3C;
+
+  /* Showcase container */
+  --color-bg-showcase: #0A0A12;
+
+  /* Dark futuristic input tokens */
+  --input-dark-bg: #0F0F18;
+  --input-dark-border: rgba(255, 255, 255, 0.08);
+  --input-dark-text: #C0C0D8;
+  --input-dark-placeholder: #3A3A58;
+  --input-label-color: #7070A0;
+  --input-letter-spacing: 0.025em;
+
+  --input-focus-border: rgba(59, 130, 246, 0.65);
+  --input-focus-glow: 0 0 0 3px rgba(37, 99, 235, 0.2), 0 0 14px rgba(37, 99, 235, 0.12);
+
+  --input-error-border: rgba(239, 68, 68, 0.65);
+  --input-error-glow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+  --input-error-msg-color: #f87171;
+  --input-error-label-color: #f87171;
+
+  /* Alert tokens */
+  --alert-radius: var(--radius-sm);
+  --alert-padding-v: var(--space-sm);
+  --alert-padding-h: var(--space-md);
+  --alert-border-width: 3px;
+  --alert-body-text: #9090B0;
+  --alert-close-color: rgba(255, 255, 255, 0.25);
+  --alert-close-hover: rgba(255, 255, 255, 0.65);
+
+  --alert-success-bg: rgba(16, 185, 129, 0.07);
+  --alert-success-accent: #34d399;
+
+  --alert-warning-bg: rgba(245, 158, 11, 0.07);
+  --alert-warning-accent: #fbbf24;
+
+  --alert-error-bg: rgba(239, 68, 68, 0.07);
+  --alert-error-accent: #f87171;
+
+  --alert-info-bg: rgba(59, 130, 246, 0.07);
+  --alert-info-accent: #60a5fa;
+
+  /* Loader tokens */
+  --loader-idle-color: #4A4A6A;
+  --loader-loading-color: #60a5fa;
+  --loader-complete-color: #34d399;
+
+  /* Card tokens */
+  --card-action-bg: #0E1020;
+  --card-action-border: rgba(59, 130, 246, 0.4);
+  --card-action-border-hover: rgba(59, 130, 246, 0.75);
+  --card-action-title: #EEF2FF;
+  --card-action-subtitle: #93C5FD;
+  --card-action-body: #6B7DA8;
+  --card-action-glow: 0 4px 24px rgba(37, 99, 235, 0.25);
+
+  --card-passive-bg: #111119;
+  --card-passive-border: rgba(255, 255, 255, 0.07);
+  --card-passive-border-hover: rgba(255, 255, 255, 0.14);
+  --card-passive-title: #C0C0D8;
+  --card-passive-subtitle: #60608A;
+  --card-passive-body: #50507A;
+
+  --card-minimal-bg: rgba(255, 255, 255, 0.02);
+  --card-minimal-border: rgba(255, 255, 255, 0.04);
+  --card-minimal-title: #707090;
+  --card-minimal-subtitle: #404060;
+  --card-minimal-body: #383858;
 }
 
 /* Usage examples

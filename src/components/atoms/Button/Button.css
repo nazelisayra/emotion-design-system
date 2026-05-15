@@ -57,11 +57,41 @@
 }
 .button--secondary:active { filter: brightness(0.95); }
 
-/* Disabled variant (visual) */
+/* ── Dark futuristic BEM states ─────────────────────────── */
+
+.button--default {
+  background: var(--btn-dark-surface);
+  color: var(--btn-dark-text);
+  border-color: var(--btn-dark-border);
+  letter-spacing: var(--btn-dark-letter-spacing);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: background 200ms ease, border-color 200ms ease,
+    color 200ms ease, box-shadow 200ms ease;
+}
+
+.button--default:hover:not(:disabled) {
+  background: var(--btn-action-bg);
+  color: var(--btn-action-text);
+  border-color: var(--btn-action-border);
+  box-shadow: var(--btn-action-glow);
+}
+
+/* Frozen hover state — used for side-by-side visual presentation */
+.button--hover {
+  background: var(--btn-action-bg);
+  color: var(--btn-action-text);
+  border-color: var(--btn-action-border);
+  letter-spacing: var(--btn-dark-letter-spacing);
+  box-shadow: var(--btn-action-glow);
+}
+
+/* Disabled variant (dark futuristic) */
 .button--disabled {
-  background: var(--emotion-bg, var(--color-border));
-  color: var(--emotion-foreground, var(--color-text-muted));
-  border-color: var(--emotion-border, var(--color-border));
+  background: var(--btn-disabled-surface);
+  color: var(--btn-disabled-text);
+  border-color: var(--btn-disabled-border);
+  letter-spacing: var(--btn-dark-letter-spacing);
+  opacity: 1;
 }
 
 /* New semantic variants */
@@ -92,4 +122,9 @@
 .button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+/* Restore full opacity for the disabled variant — its colors carry the signal */
+.button--disabled:disabled {
+  opacity: 1;
 }

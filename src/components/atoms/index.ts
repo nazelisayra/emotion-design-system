@@ -1,5 +1,7 @@
 export { default as DownloadButton } from './DownloadButton';
 export { default as Button } from './Button';
+export { default as Input } from './Input';
+export type { InputProps, InputState } from './Input';
 export { default as SuccessButton } from './SuccessButton';
 export { default as DangerButton } from './DangerButton';
 export { default as LinkButton } from './LinkButton';
@@ -7,3 +9,5 @@ export { default as Alert } from './Alert';
 export { default as InputField } from './InputField';
 export { default as LoadingSpinner } from './LoadingSpinner';
 export { default as ProgressBar } from './ProgressBar';
+export { default as Loader } from './Loader';
+export type { LoaderProps, LoaderState } from './Loader';

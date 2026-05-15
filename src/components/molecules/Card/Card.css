@@ -1,53 +1,100 @@
+/* ── Block ──────────────────────────────────────────────── */
 .card {
-  position: relative;
+  --card-bg:             var(--card-passive-bg);
+  --card-border:         var(--card-passive-border);
+  --card-border-hover:   var(--card-passive-border-hover);
+  --card-title-color:    var(--card-passive-title);
+  --card-subtitle-color: var(--card-passive-subtitle);
+  --card-body-color:     var(--card-passive-body);
+  --card-glow:           transparent;
+
   display: flex;
   flex-direction: column;
-  background: var(--emotion-bg, var(--color-bg-surface));
-  color: var(--emotion-foreground, var(--color-text-primary));
-  border: 1px solid var(--emotion-border, var(--color-border));
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius-lg);
-  padding: 0.75rem;
-  box-shadow: var(--shadow-sm);
-  backdrop-filter: var(--backdrop-blur-md, none);
-  -webkit-backdrop-filter: var(--backdrop-blur-md, none);
-  transition: box-shadow 180ms ease, transform 160ms ease, border-color 160ms ease;
-  overflow: hidden;
-  max-height: var(--card-max-height, 240px);
+  transition: border-color 200ms ease, box-shadow 200ms ease, transform 180ms ease;
 }
 
 .card:hover {
-  box-shadow: 0 8px 30px rgba(0,0,0,0.12), 0 0 14px var(--emotion-glow, transparent);
-  transform: translateY(-4px);
+  border-color: var(--card-border-hover);
+  box-shadow: var(--card-glow);
+  transform: translateY(-3px);
 }
 
-.card__header { margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.card__header-main { display:flex; flex-direction:column; }
-.card__header-actions { display:flex; gap:0.5rem; align-items:center; }
-.card__title { margin: 0; font-size: var(--font-size-lg); }
-.card__subtitle { margin: 0; color: var(--color-text-muted); font-size: var(--font-size-sm); }
-.card__body { margin: 0.5rem 0; flex: 1; overflow: hidden; }
-.card__actions { display:flex; gap:0.5rem; justify-content:flex-end; margin-top:0.75rem }
+/* ── Elements ───────────────────────────────────────────── */
+.card__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
 
-.card--centered .card__header { justify-content: center; }
-.card--centered .card__header-main { align-items: center; text-align: center; }
-.card--centered .card__actions { justify-content: center; }
+.card__title {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--card-title-color);
+  margin: 0;
+  letter-spacing: 0.01em;
+}
 
-/* Allow emotion-aware variants through CSS variables fallback */
-.card[data-emotion="trust"] { /* optional semantic hook for defaults */ }
-.card[data-emotion="focus"] { }
-.card[data-emotion="action"] { }
+.card__subtitle {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-sm);
+  color: var(--card-subtitle-color);
+  margin: 0;
+  letter-spacing: 0.025em;
+}
 
-/* Constrain images inside cards so they fit the frame */
+.card__body {
+  flex: 1;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-sm);
+  color: var(--card-body-color);
+  line-height: 1.6;
+}
+
 .card__body img {
   display: block;
   width: 100%;
   height: auto;
-  max-height: 120px;
+  border-radius: var(--radius-sm);
   object-fit: cover;
-  border-radius: 8px;
 }
 
-/* Slightly larger image allowance for trust/image-first cards */
-.card[data-emotion="trust"] .card__body img {
-  max-height: 140px;
+.card__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+}
+
+/* ── Modifiers ──────────────────────────────────────────── */
+.card--action {
+  --card-bg:             var(--card-action-bg);
+  --card-border:         var(--card-action-border);
+  --card-border-hover:   var(--card-action-border-hover);
+  --card-title-color:    var(--card-action-title);
+  --card-subtitle-color: var(--card-action-subtitle);
+  --card-body-color:     var(--card-action-body);
+  --card-glow:           var(--card-action-glow);
+}
+
+.card--passive {
+  /* inherits block defaults */
+}
+
+.card--minimal {
+  --card-bg:             var(--card-minimal-bg);
+  --card-border:         var(--card-minimal-border);
+  --card-border-hover:   var(--card-minimal-border);
+  --card-title-color:    var(--card-minimal-title);
+  --card-subtitle-color: var(--card-minimal-subtitle);
+  --card-body-color:     var(--card-minimal-body);
+}
+
+.card--minimal:hover {
+  transform: none;
+  box-shadow: none;
 }

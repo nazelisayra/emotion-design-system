@@ -1,7 +1,7 @@
-import { useState, useEffect, type CSSProperties } from 'react'
+import { useState, useEffect } from 'react'
 import heroImg from './assets/hero.png'
 import './App.css'
-import { DownloadButton, SuccessButton, Alert, InputField, LoadingSpinner, ProgressBar } from './components/atoms'
+import { Button, Input, DownloadButton, SuccessButton, Alert, InputField, LoadingSpinner, ProgressBar, Loader } from './components/atoms'
 import Card from './components/molecules/Card'
 
 type AlertState = { variant: 'success' | 'error' | 'info'; message: string } | null
@@ -31,6 +31,8 @@ function App() {
     }
   }, [loading, progress])
 
+  const loaderState: 'idle' | 'loading' | 'complete' = loading ? 'loading' : progress >= 100 ? 'complete' : 'idle'
+
   function handleSubmit(e: { preventDefault(): void }) {
     e.preventDefault()
     if (!email.includes('@')) {
@@ -47,19 +49,120 @@ function App() {
     <div id="center">
       <h1>Emotion Design System — Trust · Focus · Action</h1>
 
-      <div className="content-width" style={{ '--card-max-height': 'none' } as CSSProperties}>
-        <Card
-          title="Hero — Trust Example"
-          subtitle="Demonstrates a trust-focused surface and action"
-          actions={<SuccessButton>Confirm</SuccessButton>}
-          centerContent
-        >
-          <img src={heroImg} alt="Hero" style={{ width: '33%', height: 'auto', display: 'block', margin: '0 auto', borderRadius: 8, objectFit: 'contain' }} />
-        </Card>
-      </div>
+      <section className="button-showcase">
+        <h2 className="button-showcase__heading">Button</h2>
+        <p className="button-showcase__desc">Trust · Focus · Action</p>
+        <div className="button-showcase__grid">
+          <div className="button-showcase__item">
+            <Button variant="default" size="lg">Engage</Button>
+            <span className="button-showcase__label">Default</span>
+          </div>
+          <div className="button-showcase__item">
+            <Button variant="hover" size="lg">Engage</Button>
+            <span className="button-showcase__label">Hover</span>
+          </div>
+          <div className="button-showcase__item">
+            <Button variant="disabled" size="lg">Engage</Button>
+            <span className="button-showcase__label">Disabled</span>
+          </div>
+        </div>
+      </section>
 
-      <div style={{ marginTop: '16px' }}>
-        <DownloadButton href={heroImg} filename="hero.png" label="Download Asset" />
+      <section className="input-showcase">
+        <h2 className="input-showcase__heading">Input</h2>
+        <p className="input-showcase__desc">Default · Focus · Error</p>
+        <div className="input-showcase__grid">
+          <div className="input-showcase__item">
+            <Input label="Label" state="default" placeholder="Placeholder" />
+            <span className="input-showcase__caption">Default</span>
+          </div>
+          <div className="input-showcase__item">
+            <Input label="Label" state="focus" placeholder="Typing…" />
+            <span className="input-showcase__caption">Focus</span>
+          </div>
+          <div className="input-showcase__item">
+            <Input
+              label="Label"
+              state="error"
+              placeholder="Invalid"
+              errorMessage="This field is required."
+            />
+            <span className="input-showcase__caption">Error</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="loader-showcase">
+        <h2 className="loader-showcase__heading">Loader</h2>
+        <p className="loader-showcase__desc">Idle · Loading · Complete</p>
+        <div className="loader-showcase__grid">
+          <Loader state="idle" label="Idle" />
+          <Loader state="loading" label="Loading" />
+          <Loader state="complete" label="Complete" />
+        </div>
+      </section>
+
+      <section className="alert-showcase">
+        <h2 className="alert-showcase__heading">Alert</h2>
+        <p className="alert-showcase__desc">Success · Warning · Error</p>
+        <div className="alert-showcase__stack">
+          <Alert variant="success" persistent title="Action complete">
+            Your changes have been saved successfully.
+          </Alert>
+          <Alert variant="warning" persistent title="Proceed with caution">
+            This action may affect other connected components.
+          </Alert>
+          <Alert variant="error" persistent title="Something went wrong">
+            Unable to process your request. Please try again.
+          </Alert>
+        </div>
+      </section>
+
+      <section className="card-showcase">
+        <h2 className="card-showcase__heading">Card</h2>
+        <p className="card-showcase__desc">Action · Passive · Minimal</p>
+        <div className="card-showcase__grid">
+          <Card
+            variant="action"
+            title="Action"
+            subtitle="Conversion-focused surface"
+            actions={<SuccessButton>Get Started</SuccessButton>}
+          >
+            <p>High-priority surface built for decisions. Strong hierarchy, clear CTA, elevated presence.</p>
+          </Card>
+
+          <Card
+            variant="passive"
+            title="Passive"
+            subtitle="Observational surface"
+          >
+            <p>A steady, watchful surface. Suited for data and informational content with no required action.</p>
+          </Card>
+
+          <Card
+            variant="minimal"
+            title="Minimal"
+            subtitle="Low cognitive load"
+          >
+            <p>A quiet surface. Reduced chrome for calm contexts where visual noise needs to disappear.</p>
+          </Card>
+        </div>
+      </section>
+
+      <div className="content-width">
+        <Card
+          variant="action"
+          title="Hero — Action"
+          subtitle="Demonstrates a conversion-focused surface"
+          actions={
+            <>
+              <DownloadButton href={heroImg} filename="hero.png" label="Download" />
+              <SuccessButton>Confirm</SuccessButton>
+            </>
+          }
+        >
+          <img src={heroImg} alt="Hero" />
+        </Card>
       </div>
 
       <section style={{ marginTop: '32px', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -121,9 +224,9 @@ function App() {
       <section style={{ marginTop: '32px', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <h2>Loading — Spinner &amp; Progress</h2>
         <div style={{ display: 'flex', alignItems: 'center', gap: '24px', marginTop: '12px' }}>
-          <LoadingSpinner size="sm" />
-          <LoadingSpinner size="md" />
-          <LoadingSpinner size="lg" />
+          <Loader state={loaderState} size="sm" showTrack={false} />
+          <Loader state={loaderState} size="md" showTrack={false} />
+          <Loader state={loaderState} size="lg" showTrack={false} />
         </div>
         <div style={{ width: '100%', maxWidth: '400px', marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -145,35 +248,6 @@ function App() {
         )}
       </section>
 
-      <section style={{ marginTop: '32px', width: '100%' }}>
-        <h2>Card Variations — Emotion Examples</h2>
-        <div className="content-width" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', marginTop: '12px' }}>
-          {/* 1) No image */}
-          <Card
-            title="Focus — Text Surface"
-            subtitle="Readable, low-arousal layout"
-            actions={
-              <>
-                <SuccessButton>Confirm</SuccessButton>
-              </>
-            }
-          >
-            <p>A focus-oriented card showing readable text with reduced chrome.</p>
-          </Card>
-
-          {/* 2) No button (no actions) */}
-          <Card emotion="trust" title="Trust — Visual Surface" subtitle="Image-first card (no actions)">
-            <img src={heroImg} alt="Hero" className="base" />
-          </Card>
-
-          {/* 3) Just text */}
-          <Card title="Neutral — Minimal Surface">
-            <p>
-              A minimal card for brief inline content — suited to calm, low-arousal contexts.
-            </p>
-          </Card>
-        </div>
-      </section>
     </div>
   )
 }

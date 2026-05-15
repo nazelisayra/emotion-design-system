@@ -1,0 +1,82 @@
+/* ── Block ───────────────────────────────────────────────── */
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  width: 100%;
+}
+
+/* ── Elements ────────────────────────────────────────────── */
+.input__label {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--input-label-color);
+  letter-spacing: var(--input-letter-spacing);
+  text-transform: uppercase;
+}
+
+.input__field {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-md);
+  color: var(--input-dark-text);
+  background: var(--input-dark-bg);
+  border: 1.5px solid var(--input-dark-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-xs) var(--space-sm);
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+  letter-spacing: var(--input-letter-spacing);
+}
+
+.input__field::placeholder {
+  color: var(--input-dark-placeholder);
+}
+
+.input__message {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-xs);
+  line-height: 1.4;
+  letter-spacing: var(--input-letter-spacing);
+}
+
+.input__message--error {
+  color: var(--input-error-msg-color);
+}
+
+/* ── State modifiers ─────────────────────────────────────── */
+
+/* default: base field styles apply, no override needed */
+.input--default .input__field {
+  border-color: var(--input-dark-border);
+}
+
+/* focus: frozen visual for showcase; real :focus uses same vars */
+.input--focus .input__field,
+.input__field:focus {
+  border-color: var(--input-focus-border);
+  box-shadow: var(--input-focus-glow);
+}
+
+/* error */
+.input--error .input__field {
+  border-color: var(--input-error-border);
+  box-shadow: var(--input-error-glow);
+}
+
+.input--error .input__label {
+  color: var(--input-error-label-color);
+}
+
+/* ── Size modifiers ──────────────────────────────────────── */
+.input--sm .input__field {
+  font-size: var(--font-size-sm);
+  padding: var(--space-2xs) var(--space-xs);
+}
+
+.input--lg .input__field {
+  font-size: var(--font-size-lg);
+  padding: var(--space-sm) var(--space-md);
+}
